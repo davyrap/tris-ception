@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tris-ception</title>
+    <script src="../JS/scriptOnline.js" defer></script>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="shortcut icon" href="../RESOURCES/favicon.png" type="image/x-icon">
+
+    <audio src="../RESOURCES/button.ogg" id="buttonClickFX"></audio>
+    <audio src="../RESOURCES/tris.ogg" id="simpleTrisFX"></audio>
+    <audio src="../RESOURCES/Billiards - Loop.mp3" id="musicLoop" loop="true"></audio>
+    <audio src="../RESOURCES/Billiards - Endgame.mp3" id="endgameSong"></audio>
+</head>
+<body>
+    <div id="starter">
+        <video src="../RESOURCES/ambient.mp4" autoplay loop muted style="position: fixed; opacity: .5; width: 100vw; margin: 0;"></video>
+        <div id="starterContent">
+            <input type="text" name="inputRoomCode" id="roomCodeInput" placeholder="Inserisci codice stanza..." autocomplete="off">
+            <button class="cliccableButton" onclick="Registrazione(), Start(), ClickSFX()">Unisciti alla partita</button>
+        </div>
+    </div>
+
+    <h1 id="turnoDi">Scrive X</h1>
+    <div id="tableHolder"></div>
+    <button id="apriAudioBtn" onclick="SetAudioVisibility('block'), ClickSFX()"></button>
+
+    <div class='trisLine' id='line'></div>
+    
+    <div id="blurrer"></div>
+    <div id="audioManager">
+        <h1>Opzioni audio</h1>
+        <div class="optionHolder">
+            <label for="volSlider">Volume:</label>
+            <input type="range" name="Volume" id="volSlider" value="100" onchange="ChangeVolume()">
+        </div>
+        <div class="optionHolder">
+            <label for="sfxCheck">Effetti sonori:</label>
+            <input type="checkbox" name="SFX" id="sfxCheck" checked onchange="ToggleSFX(), ClickSFX()">
+        </div>
+        <button type="button" class="cliccableButton" onclick="SetAudioVisibility('none'), ClickSFX()">Chiudi</button>
+    </div>
+
+    <button type="button" onclick="window.location='game.html'" id="restartBtn" class="cliccableButton" style="display: none; position: fixed; bottom: 2.5vh;">Ricomincia</button>
+</body>
+</html>

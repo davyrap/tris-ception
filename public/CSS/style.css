@@ -1,0 +1,351 @@
+:root{
+    --black: #1A1A1A;
+    --grey: #202020;
+    --white: #CACACA;
+    --transparentGrey: #202020AA;
+    --red: #A34444F0;
+}
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    color: var(--grey);
+    background-color: var(--white);
+    margin: 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#starter{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    /* background-color: var(--transparentGrey); */
+    z-index: 11;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#starter button{
+    animation: bob 3s ease-in-out infinite;
+}
+@keyframes bob {
+    0%{scale: 1;}
+    50%{scale: 1.2;}
+    100%{scale: 1;}
+}
+
+#starterContent{
+    height: 66vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+#starterContent input{
+    scale: 2;
+    border: .25vw solid var(--grey);
+    border-radius: .25vw;
+}
+
+#turnoDi{
+    visibility: hidden;
+}
+
+/* Gioco */
+
+.blur{
+    filter: blur(2px) brightness(2);
+}
+
+.hider{
+    display: none;
+    width: 10vw;
+    height: 10vw;
+    position: fixed;
+    translate: .3vw -12.5vh;
+    z-index: 10;
+    margin-top: 6vw;
+
+    /* border: 5px solid cadetblue; */
+}
+
+.tab{
+    margin: .75vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tab button{
+    width: 3vw;
+    height: 3vw;
+    font-size: 2.5vw;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--grey);
+    color: var(--white);
+    border: 0;
+    border-radius: .25vw;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tab button:disabled{
+    cursor: default;
+    /* background-color: transparent;
+    color: #202020; */
+}
+.tab button:active{
+    scale: .9;
+}
+
+#tableHolder{
+    visibility: hidden;
+}
+.fadeIn{
+    animation: tableGetIn 1.5s ease;
+}
+@keyframes tableGetIn {
+    0% {scale: .8; filter: opacity(0);}
+    70%{scale: 1.05;}
+}
+
+.winLabel{
+    width: 9.5vw;
+    height: 9.5vw;
+    font-size: 10vw;
+    animation: winLabelEnter .25s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes winLabelEnter {
+    0%{scale: 1.5; transform: rotate(120deg) skew(20deg);}
+}
+
+
+/* Tris line */
+
+.trisLine{
+    display: none;
+    position: fixed;
+    width: 45vw;
+    height: 4vh;
+    margin-top: 47.75vh;
+    border-radius: 10vw;
+    background-color: var(--red);
+}
+
+.trisAnimation{
+    animation: trisAnimation 1.5s ease;
+}
+@keyframes trisAnimation {
+    0%{width: 0; height: 8vh;}
+    75%{width: 50vw; height: 2.5vh;}
+}
+
+
+/* Audio Management */
+
+#blurrer{
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--transparentGrey);
+    margin: 0;
+}
+
+#audioManager{
+    display: none;
+
+    position: fixed;
+    translate: 0 7vw;
+    padding: 5vw;
+    border-radius: 1vw;
+    text-align: center;
+    color: var(--white);
+    background-color: var(--black);
+    width: 33vw;
+    z-index: 11;
+    animation: slideIn .2s ease-in;
+}
+@keyframes slideIn {
+    0%{transform: translateY(100vh);}
+}
+
+#audioManager h1{
+    font-size: 3.5rem;
+    margin: 0;
+    margin-bottom: 5vh;
+}
+
+#apriAudioBtn{
+    position: fixed;
+    background-image: url("../RESOURCES/volumeIcon.png");
+    background-size: contain;
+    width: 4vw;
+    height: 4vw;
+    border: .2vw solid var(--black);
+    border-radius: 10vw;
+    background-color: var(--white);
+    margin-top: 2.5vh;
+    margin-left: 80vw;
+    cursor: pointer;
+    visibility: hidden;
+}
+#apriAudioBtn:active{
+    scale: .9;
+}
+
+.cliccableButton{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2vw;
+    border: solid 3px var(--black);
+    border-radius: .5vw;
+    padding: 1vw;
+    width: 20vw;
+    color: var(--white);
+    background-color: var(--grey);
+    cursor: pointer;
+}
+.cliccableButton:active{
+    scale: .9;
+    color: var(--grey);
+    background-color: var(--white);
+}
+
+#sfxCheck{
+    cursor: pointer;
+}
+
+.optionHolder{
+    padding: 1vw;
+    margin: .5vw;
+    margin-bottom: 5vh;
+    font-size: 1.5vw;
+    border-radius: 1vw;
+    background-color: var(--grey);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+p{
+    text-align: center;
+    font-size: 1.3vw;
+    width: 66vw;
+}
+
+
+/* Slider, checkbox e scrollbar */
+
+
+#volSlider {
+    appearance: none;
+    width: 60%;
+    height: 1vw;
+    border-radius: .2vw;
+    background: var(--white);
+    outline: none;
+    -webkit-transition: .2s;
+    opacity: 0.8;
+    transition: opacity .2s;
+}
+
+#volSlider:hover {
+    opacity: 1;
+}
+
+#volSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.25vw;
+    height: 1.25vw;
+    border-radius: .2vw;
+    background: var(--red);
+    cursor: pointer;
+}
+
+
+
+input[type="checkbox"]
+{
+    accent-color: var(--red);
+    scale: 2.5;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: .75vw;
+}
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--white); 
+}
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--grey);
+}
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--black); 
+}
+
+
+/* Tutorial */
+
+
+.tutorialSection{
+    width: 80vw;
+    margin-bottom: 2.5vw;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tutorialSection:nth-child(even)
+{
+    flex-direction: row-reverse;
+}
+
+.tutorialSection div{
+    width: 30vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tutorialSection h2{
+    text-align: center;
+    font-size: 3.25vw;
+    margin-bottom: 0;
+}
+
+.tutorialSection p{
+    font-size: 1.75vw;
+    width: 100%;
+}
+
+.tutorialSection video{
+    width: 30vw;
+    height: 30vw;
+    border: 0.2vw solid var(--grey);
+    border-radius: 0.5vw;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regolamento</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="shortcut icon" href="RESOURCES/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <h1 style="font-size: 5vw; margin: 0;">Tris-ception</h1>
+
+    <div class="buttonHolder">
+        <button type="button" onclick="GoToGame()" class="cliccableButton">Gioca in locale</button>
+        <button type="button" onclick="GoToOnline()" class="cliccableButton">Gioca online</button>
+    </div>
+
+    <h2 style="font-size: 2.5vw; margin-bottom: 3vw;">Come si gioca</h2>
+    <div class="tutorialSection">
+        <div>
+            <h2>Pianifica le tue mosse</h2>
+            <p>
+                Dopo ogni mossa l'unica partita dove sarà possibile giocare sarà quella corrispondente alla posizione dell'ultima giocata. <br><br>
+                Con questa meccanica, ogni tua mossa influisce sulla prossima dell' avversario.
+            </p>
+        </div>
+        <video src="RESOURCES/tutorial/movimento.mp4" autoplay muted loop></video>
+    </div>
+    <div class="tutorialSection">
+        <div>
+            <h2>Conquista caselle</h2>
+            <p>
+                Vincendo le partite conquisterai le caselle, che ti permetteranno di avanzare nel gioco <br><br>
+                Ricorda: lo scopo è quello di fare un Tris-ception!
+            </p>
+        </div>
+        <video src="RESOURCES/tutorial/segnapunti.mp4" autoplay muted loop></video>
+    </div>
+    <div class="tutorialSection">
+        <div>
+            <h2>Vinci la partita</h2>
+            <p>
+                Con un po' di astuzia e di fortuna riuscirai a fare un Tris-ception e vincere la partita! <br><br>
+                Se tu o il tuo avversario non doveste riuscire a fare un Tris-ception, vince allo spareggio chi ha conquistato più caselle.
+            </p>
+        </div>
+        <video src="RESOURCES/tutorial/vittoria.mp4" autoplay muted loop></video>
+    </div>
+
+    <div class="buttonHolder">
+        <button type="button" onclick="GoToGame()" class="cliccableButton">Gioca in locale</button>
+        <button type="button" onclick="GoToOnline()" class="cliccableButton">Gioca online</button>
+    </div>
+</body>
+
+<script>
+    function GoToGame()
+    {
+        window.location = "./HTML/game.html";
+    }
+    function GoToOnline()
+    {
+        window.location = "./HTML/online.html";
+    }
+</script>
+
+<style>
+    .buttonHolder{
+        display: flex;
+        justify-content: space-between;
+        width: 50vw;
+        margin: 7.5vh;
+    }
+
+    .cliccableButton:disabled{
+        opacity: .5;
+        cursor: default;
+    }
+    .cliccableButton:disabled:active{
+        scale: 1;
+        color: #CACACA;
+        background-color: #202020;
+    }
+</style>
+</html>
