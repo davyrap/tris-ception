@@ -31,6 +31,12 @@ body{
     justify-content: center;
     align-items: center;
 }
+#starter video{
+    position: fixed;
+    opacity: .5;
+    width: 100vw;
+    margin: 0;
+}
 #starter button{
     animation: bob 3s ease-in-out infinite;
 }
@@ -192,7 +198,7 @@ body{
 #apriAudioBtn{
     position: fixed;
     background-image: url("../RESOURCES/volumeIcon.png");
-    background-size: contain;
+    background-size: cover;
     width: 4vw;
     height: 4vw;
     border: .2vw solid var(--black);
@@ -348,4 +354,20 @@ input[type="checkbox"]
     height: 30vw;
     border: 0.2vw solid var(--grey);
     border-radius: 0.5vw;
+}
+
+.buttonHolder{
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+    margin: 7.5vh;
+}
+
+#mainTitle{
+    font-size: 5vw;
+    margin: 0;
+}
+#mainSubtitle{
+    font-size: 2.5vw;
+    margin-bottom: 3vw;
 }

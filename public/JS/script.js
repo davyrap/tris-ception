@@ -281,8 +281,15 @@ function SetTrisLine(xMultiplier, yMultiplier, orientationOffset)
 {
     if(checkFor == "win")   // ovvero "fallo solo per il super tris"
     {
+        xOffset = 11.55;
+        yOffset = 11.5;
+        if(IsMobileDevice())
+        {
+            xOffset = 29.5;
+            yOffset = 29.5;
+        }
         linea = document.getElementById("line");
-        linea.style.translate = xMultiplier * 11.55 + "vw " + yMultiplier * 11.5 + "vw";
+        linea.style.translate = xMultiplier * xOffset + "vw " + yMultiplier * yOffset + "vw";
         linea.style.transform = "rotate(" + orientationOffset + "deg)";
         linea.style.display = "block";
         linea.classList.add("trisAnimation");
@@ -312,4 +319,22 @@ function ChangeVolume()
 function ClickSFX()
 {
     if(useSFX) document.getElementById("buttonClickFX").play();
+}
+
+
+//===================MOBILE DETECTION==================
+
+function IsMobileDevice()
+{
+    if (navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i))
+        {
+            return true;
+        }
+    return false
 }

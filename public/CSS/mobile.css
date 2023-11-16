@@ -1,0 +1,151 @@
+@media only screen and (max-width: 768px) {
+    :root{
+        --buttonWidth: 8vw;
+    }
+
+    /* Index */
+
+    #mainTitle{
+        font-size: 12vw;
+        margin: 2vh;
+    }
+    #mainSubtitle{
+        font-size: 10vw;
+        margin-bottom: 5vh;
+    }
+
+    .buttonHolder{
+        scale: 1.75;
+        width: 45vw;
+
+        flex-direction: column;
+        align-items: center;
+    }
+    .cliccableButton{
+        width: 40vw;
+        height: 5vh;
+        margin-bottom: 2vh;
+        font-size: 3vw;
+    }
+
+    .tutorialSection{
+        width: 100vw;
+        margin-bottom: 4vh;
+
+        flex-direction: column;
+    }
+
+    .tutorialSection:nth-child(even)
+    {
+        flex-direction: column;
+    }
+    .tutorialSection div{
+        width: 80vw;
+    }
+    .tutorialSection h2{
+        font-size: 7.5vw;
+        margin-bottom: 0;
+    }
+    .tutorialSection p{
+        font-size: 5vw;
+        margin-bottom: 5vh;
+    }
+    .tutorialSection video{
+        width: 50vw;
+        height: 50vw;
+    }
+
+
+    /* Gioco */
+    #starterContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 25vh;
+        align-items: center;
+    }
+    #starter video{
+        width: auto;
+        height: 100vh;
+        border: 5px solid black;
+    }
+    #turnoDi{
+        font-size: 12.5vw;
+        margin-top: 5vh;
+    }
+
+    #tableHolder{
+        margin-top: 15vh;
+    }
+    
+    .tab button{
+        width: var(--buttonWidth);
+        height: var(--buttonWidth);
+        font-size: 7.5vw;
+        border-radius: 1vw;
+    }
+
+    #apriAudioBtn{
+        width: 10vw;
+        height: 10vw;
+        border: .75vw solid var(--black);
+        margin-top: 6vh;
+    }
+
+    .hider{
+        /* border: 5px solid red; */
+        width: calc(var(--buttonWidth) * 3 + 2.5%);
+        height: calc(var(--buttonWidth) * 3 + 2.5%);
+        translate: -1.25% -3.5vh;
+    }
+
+    .winLabel{
+        /* border: 1px solid blue; */
+        font-size: 40vw;
+        width: calc(var(--buttonWidth) * 3);
+        height: calc(var(--buttonWidth) * 3);
+    }
+
+    .trisLine{
+        width: 60vh;
+        height: 2.5vh;
+        margin-top: 49.75vh;
+    }
+    @keyframes trisAnimation {
+        0%{width: 0; height: 5vh;}
+        75%{width: 65vh; height: 2.5vh;}
+    }
+
+
+    #audioManager{
+        width: 80vw;
+        height: 80vh;
+        margin-top: 5vh;   
+    }
+    #audioManager h1{
+        margin-top: 5vh;
+    }
+    #audioManager button{
+        font-size: 10vw;
+        width: 90%;
+        height: 10vh;
+    }
+    .optionHolder{
+        width: 90%;
+        height: 15vh;
+        font-size: 10vw;
+        margin-left: 4%;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    #volSlider{
+        width: 90%;
+        height: 2vh;
+    }
+    #volSlider::-webkit-slider-thumb{
+        width: 3vh;
+        height: 3vh;
+    }
+}
