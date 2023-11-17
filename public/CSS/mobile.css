@@ -121,9 +121,9 @@
         margin-top: calc(50% - 7rem / 2);
         margin-left: .7rem;
     }
-    @keyframes trisAnimation {
-        0%{width: 0; height: 10em;}
-        75%{width: 175em; height: 5;}
+
+    #roomCodeDisplay{
+        font-size: 10rem;
     }
 
 

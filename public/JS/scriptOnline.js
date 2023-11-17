@@ -1,10 +1,3 @@
-/*
-POBBLEMI:
-Risolto - Il random della tile non funziona affatto
-Risolto - Bloccare totalmente il client che fa la mossa e sbloccare la tile giusta quando riceve la mossa
-Decidere chi inizia (l'ultimo che arriva è il primo che inizia)
-*/
-
 //==============INIZIALIZZAZIONE=======================
 function CreaTris(tabId)
 {
@@ -56,7 +49,7 @@ function Restart()
     window.location = "online.html";
 }
 
-window.onload = document.getElementById("tableHolder").innerHTML = CreaGigaTris();
+window.onload = document.getElementById("tableHolder").innerHTML += CreaGigaTris();
 
 //==============LOGICA DI GIOCO=======================
 
@@ -110,7 +103,6 @@ function Write(buttonId, tileToActivate, isMine)    // chiamata da ogni button
 
     let disabledTile = tileToActivate;
     if(!gameover) disabledTile = DisableAllTilesExcept(tileToActivate);
-    console.log("disabledTIle = " + disabledTile);
 
     turno = !turno;
 
@@ -268,6 +260,9 @@ function EndGame()
             document.getElementById("hid" + i).style.display = "block"; // blocco tutto così non si gioca più
             document.getElementById("tab" + i).classList.remove("blur");
         }
+
+    // sblocco questo client (qualora sia bloccato)
+    document.getElementById("blurrer").style.display = "block";
     document.getElementById("musicLoop").pause();
     document.getElementById("endgameSong").play();
     document.getElementById("restartBtn").style.display = "block";
@@ -323,7 +318,7 @@ socket.on('registrationRejected', (message) => {
 
 socket.on('waitForOpponent', (roomCode) => {
     document.getElementById("blurrer").style.display = "block";
-    console.log("Aspetto un avversario alla partita " + code);
+    document.getElementById("roomCodeDisplay").innerHTML = "In attesa di un avversario.<br>Codice stanza: " + code;
 });
 
 // Handle form submission
@@ -341,6 +336,9 @@ socket.on('privateMessage', ({ message, sender }) => {
 
     // ri-abilito questo client
     document.getElementById("blurrer").style.display = "none";
+
+    //lo so è brutto perchè lo fa sempre non una sola volta
+    document.getElementById("roomCodeDisplay").style.display = "none";
 });
 
 socket.on('userDisconnected', () => {
@@ -371,4 +369,22 @@ function ChangeVolume()
 function ClickSFX()
 {
     if(useSFX) document.getElementById("buttonClickFX").play();
+}
+
+
+//===================MOBILE DETECTION==================
+
+function IsMobileDevice()
+{
+    if (navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i))
+        {
+            return true;
+        }
+    return false
 }
