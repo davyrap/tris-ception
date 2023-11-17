@@ -1,36 +1,37 @@
 @media only screen and (max-width: 768px) {
     :root{
-        --buttonWidth: 8vw;
+        font-size: 1vw;
+        --buttonWidth: 15rem;
     }
 
     /* Index */
 
     #mainTitle{
-        font-size: 12vw;
-        margin: 2vh;
+        font-size: 12rem;
+        margin: 2rem;
     }
     #mainSubtitle{
-        font-size: 10vw;
-        margin-bottom: 5vh;
+        font-size: 10rem;
+        margin-bottom: 5rem;
     }
 
     .buttonHolder{
         scale: 1.75;
-        width: 45vw;
+        width: 45rem;
 
         flex-direction: column;
         align-items: center;
     }
     .cliccableButton{
-        width: 40vw;
-        height: 5vh;
-        margin-bottom: 2vh;
-        font-size: 3vw;
+        width: 40rem;
+        height: 10rem;
+        margin-bottom: 2rem;
+        font-size: 3rem;
     }
 
     .tutorialSection{
         width: 100vw;
-        margin-bottom: 4vh;
+        margin-bottom: 4rem;
 
         flex-direction: column;
     }
@@ -43,20 +44,28 @@
         width: 80vw;
     }
     .tutorialSection h2{
-        font-size: 7.5vw;
+        font-size: 7.5rem;
         margin-bottom: 0;
     }
     .tutorialSection p{
-        font-size: 5vw;
-        margin-bottom: 5vh;
+        font-size: 5rem;
+        margin-bottom: 5rem;
     }
     .tutorialSection video{
-        width: 50vw;
-        height: 50vw;
+        width: 50rem;
+        height: 50rem;
     }
 
 
     /* Gioco */
+    #gameTitle{
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     #starterContent{
         display: flex;
         flex-direction: column;
@@ -70,33 +79,33 @@
         border: 5px solid black;
     }
     #turnoDi{
-        font-size: 12.5vw;
-        margin-top: 5vh;
+        font-size: 12.5rem;
+        margin-top: 5rem;
     }
 
     #tableHolder{
-        margin-top: 15vh;
+        scale: .6;
     }
     
     .tab button{
         width: var(--buttonWidth);
         height: var(--buttonWidth);
-        font-size: 7.5vw;
-        border-radius: 1vw;
+        font-size: 7.5rem;
+        border-radius: 2rem;
     }
 
     #apriAudioBtn{
-        width: 10vw;
-        height: 10vw;
-        border: .75vw solid var(--black);
-        margin-top: 6vh;
+        width: 15rem;
+        height: 15rem;
+        border: .75rem solid var(--black);
+        position: initial;
+        margin: 2rem;
     }
 
     .hider{
-        /* border: 5px solid red; */
         width: calc(var(--buttonWidth) * 3 + 2.5%);
         height: calc(var(--buttonWidth) * 3 + 2.5%);
-        translate: -1.25% -3.5vh;
+        translate: -1% -10%;
     }
 
     .winLabel{
@@ -107,33 +116,34 @@
     }
 
     .trisLine{
-        width: 60vh;
-        height: 2.5vh;
-        margin-top: 49.75vh;
+        width: 151rem;
+        height: 7rem;
+        margin-top: calc(50% - 7rem / 2);
+        margin-left: .7rem;
     }
     @keyframes trisAnimation {
-        0%{width: 0; height: 5vh;}
-        75%{width: 65vh; height: 2.5vh;}
+        0%{width: 0; height: 10em;}
+        75%{width: 175em; height: 5;}
     }
 
 
     #audioManager{
-        width: 80vw;
-        height: 80vh;
-        margin-top: 5vh;   
+        width: 80rem;
+        height: 140rem;
     }
     #audioManager h1{
-        margin-top: 5vh;
+        margin: 7.5rem 0;
+        font-size: 10rem;
     }
     #audioManager button{
-        font-size: 10vw;
-        width: 90%;
-        height: 10vh;
+        font-size: 10rem;
+        width: 75%;
+        height: 20rem;
     }
     .optionHolder{
         width: 90%;
-        height: 15vh;
-        font-size: 10vw;
+        height: 40rem;
+        font-size: 10rem;
         margin-left: 4%;
 
         display: flex;
@@ -142,10 +152,10 @@
 
     #volSlider{
         width: 90%;
-        height: 2vh;
+        height: 5rem;
     }
     #volSlider::-webkit-slider-thumb{
-        width: 3vh;
-        height: 3vh;
+        width: 7.5rem;
+        height: 7.5rem;
     }
 }

@@ -9,9 +9,9 @@ Decidere chi inizia (l'ultimo che arriva è il primo che inizia)
 function CreaTris(tabId)
 {
     buttonId = tabId * 9;
-    tabella = "<table id='tab" + tabId + "' class='tab'>"
+    tabella = "<table id='tab" + tabId + "' class='tab'>";
+    tabella += "<tr><div class='hider' id='hid" + tabId + "'></div>";
     for (let i = 0, j; i < 3; i++) {
-        tabella += "<tr><div class='hider' id='hid" + tabId + "'></div>";
         for (j = 0; j < 3; j++) {
             tabella += "<td><button id='btn" + buttonId + "' onclick='Write(" + buttonId + ", " + buttonId%9 + ", true)'></button></td>";
             buttonId++;
@@ -291,8 +291,15 @@ function SetTrisLine(xMultiplier, yMultiplier, orientationOffset)
 {
     if(checkFor == "win")   // ovvero "fallo solo per il super tris"
     {
+        xOffset = 11.5;
+        yOffset = 11.5;
+        if(IsMobileDevice())
+        {
+            xOffset = 51;
+            yOffset = 51;
+        }
         linea = document.getElementById("line");
-        linea.style.translate = xMultiplier * 11.55 + "vw " + yMultiplier * 11.5 + "vw";
+        linea.style.translate = xMultiplier * xOffset + "rem " + yMultiplier * yOffset + "rem";
         linea.style.transform = "rotate(" + orientationOffset + "deg)";
         linea.style.display = "block";
         linea.classList.add("trisAnimation");

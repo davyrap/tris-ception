@@ -13,10 +13,12 @@ body{
     color: var(--grey);
     background-color: var(--white);
     margin: 0;
+    overflow-x: hidden;
     
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #starter{
@@ -62,6 +64,8 @@ body{
 
 #turnoDi{
     visibility: hidden;
+    font-size: 4rem;
+    margin: 0;
 }
 
 /* Gioco */
@@ -72,32 +76,32 @@ body{
 
 .hider{
     display: none;
-    width: 10vw;
-    height: 10vw;
+    width: 10rem;
+    height: 10rem;
     position: fixed;
-    translate: .3vw -12.5vh;
+    translate: 10% -50%;
     z-index: 10;
-    margin-top: 6vw;
+    margin-top: 6rem;
 
     /* border: 5px solid cadetblue; */
 }
 
 .tab{
-    margin: .75vw;
+    margin: .75rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .tab button{
-    width: 3vw;
-    height: 3vw;
-    font-size: 2.5vw;
+    width: 3rem;
+    height: 3rem;
+    font-size: 2.5rem;
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--grey);
     color: var(--white);
     border: 0;
-    border-radius: .25vw;
+    border-radius: .25rem;
     cursor: pointer;
 
     display: flex;
@@ -115,6 +119,7 @@ body{
 
 #tableHolder{
     visibility: hidden;
+    margin-top: 2rem;
 }
 .fadeIn{
     animation: tableGetIn 1.5s ease;
@@ -125,9 +130,9 @@ body{
 }
 
 .winLabel{
-    width: 9.5vw;
-    height: 9.5vw;
-    font-size: 10vw;
+    width: 9.5rem;
+    height: 9.5rem;
+    font-size: 10rem;
     animation: winLabelEnter .25s ease;
 
     display: flex;
@@ -144,10 +149,11 @@ body{
 .trisLine{
     display: none;
     position: fixed;
-    width: 45vw;
-    height: 4vh;
-    margin-top: 47.75vh;
-    border-radius: 10vw;
+    width: 50rem;
+    height: 2rem;
+    margin-top: calc(3rem * 6 - 1.7rem);
+    margin-left: calc(-3rem * 2 - 1.7rem);
+    border-radius: 10rem;
     background-color: var(--red);
 }
 
@@ -155,8 +161,8 @@ body{
     animation: trisAnimation 1.5s ease;
 }
 @keyframes trisAnimation {
-    0%{width: 0; height: 8vh;}
-    75%{width: 50vw; height: 2.5vh;}
+    0%{width: 0; height: 8rem;}
+    75%{width: 60rem; height: 2.5rem;}
 }
 
 
@@ -175,37 +181,34 @@ body{
     display: none;
 
     position: fixed;
-    translate: 0 7vw;
-    padding: 5vw;
-    border-radius: 1vw;
+    translate: 0 2rem;
+    padding: 5rem;
+    border-radius: 1rem;
     text-align: center;
     color: var(--white);
     background-color: var(--black);
-    width: 33vw;
+    width: 33rem;
     z-index: 11;
     animation: slideIn .2s ease-in;
 }
 @keyframes slideIn {
-    0%{transform: translateY(100vh);}
+    0%{transform: translateY(100rem);}
 }
 
 #audioManager h1{
     font-size: 3.5rem;
     margin: 0;
-    margin-bottom: 5vh;
+    margin-bottom: 3rem;
 }
 
 #apriAudioBtn{
-    position: fixed;
     background-image: url("../RESOURCES/volumeIcon.png");
     background-size: cover;
-    width: 4vw;
-    height: 4vw;
+    width: 4rem;
+    height: 4rem;
     border: .2vw solid var(--black);
-    border-radius: 10vw;
+    border-radius: 10rem;
     background-color: var(--white);
-    margin-top: 2.5vh;
-    margin-left: 80vw;
     cursor: pointer;
     visibility: hidden;
 }
@@ -215,11 +218,11 @@ body{
 
 .cliccableButton{
     font-family: 'Courier New', Courier, monospace;
-    font-size: 2vw;
+    font-size: 2rem;
     border: solid 3px var(--black);
-    border-radius: .5vw;
-    padding: 1vw;
-    width: 20vw;
+    border-radius: .5rem;
+    padding: 1rem;
+    width: 20rem;
     color: var(--white);
     background-color: var(--grey);
     cursor: pointer;
@@ -230,16 +233,24 @@ body{
     background-color: var(--white);
 }
 
+#gameTitle{
+    width: 30rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 #sfxCheck{
     cursor: pointer;
 }
 
 .optionHolder{
-    padding: 1vw;
-    margin: .5vw;
-    margin-bottom: 5vh;
-    font-size: 1.5vw;
-    border-radius: 1vw;
+    padding: 1rem;
+    margin: .5rem;
+    margin-bottom: 2.5rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
     background-color: var(--grey);
 
     display: flex;
@@ -249,8 +260,8 @@ body{
 
 p{
     text-align: center;
-    font-size: 1.3vw;
-    width: 66vw;
+    font-size: 1.3rem;
+    width: 66rem;
 }
 
 
@@ -260,8 +271,8 @@ p{
 #volSlider {
     appearance: none;
     width: 60%;
-    height: 1vw;
-    border-radius: .2vw;
+    height: 1rem;
+    border-radius: .2rem;
     background: var(--white);
     outline: none;
     -webkit-transition: .2s;
@@ -276,9 +287,9 @@ p{
 #volSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 1.25vw;
-    height: 1.25vw;
-    border-radius: .2vw;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: .2rem;
     background: var(--red);
     cursor: pointer;
 }
