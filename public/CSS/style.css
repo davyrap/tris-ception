@@ -40,7 +40,7 @@ body{
     margin: 0;
 }
 #starter button{
-    animation: bob 3s ease-in-out infinite;
+    z-index: 2;
 }
 @keyframes bob {
     0%{scale: 1;}
@@ -180,7 +180,7 @@ body{
 
 /* Audio Management */
 
-#blurrer{
+.blurrer{
     display: none;
     position: fixed;
     width: 100vw;
@@ -223,6 +223,7 @@ body{
     background-color: var(--white);
     cursor: pointer;
     visibility: hidden;
+    z-index: 12;
 }
 #apriAudioBtn:active{
     scale: .9;

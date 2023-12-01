@@ -20,7 +20,8 @@
         <video src="../RESOURCES/ambient.mp4" autoplay loop muted style="position: fixed; opacity: .5; width: 100vw; margin: 0;"></video>
         <div id="starterContent">
             <input type="text" name="inputRoomCode" id="roomCodeInput" placeholder="Inserisci codice stanza..." autocomplete="off">
-            <button class="cliccableButton" onclick="Registrazione(), Start(), ClickSFX()">Unisciti alla partita</button>
+            <button class="cliccableButton" onclick="CreaCodice(), ClickSFX()">Genera un codice stanza</button>
+            <button class="cliccableButton" onclick="Registrazione(), ClickSFX()">Unisciti alla partita</button>
         </div>
     </div>
 
@@ -33,7 +34,8 @@
         <div class='trisLine' id='line'></div>
     </div>
     
-    <div id="blurrer"></div>
+    <div class="blurrer" id="audioBlurrer"></div>
+    <div class="blurrer" id="lobbyBlurrer"></div>
     <div id="roomCodeDisplay"></div>
 
     <div id="audioManager">

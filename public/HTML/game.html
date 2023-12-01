@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tris-ception</title>
     <script src="../JS/script.js" defer></script>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/mobile.css">
     <link rel="shortcut icon" href="../RESOURCES/favicon.png" type="image/x-icon">
@@ -17,7 +18,7 @@
 <body>
     <div id="starter">
         <video src="../RESOURCES/ambient.mp4" autoplay loop muted></video>
-        <button class="cliccableButton" onclick="Start(), ClickSFX()">Inizia partita</button>
+        <button class="cliccableButton" onclick="Start(), ClickSFX(), alertServer()">Inizia partita</button>
     </div>
 
     <div id="gameTitle">
@@ -45,4 +46,13 @@
 
     <button type="button" onclick="window.location='game.html'" id="restartBtn" class="cliccableButton" style="display: none; position: fixed; bottom: 2.5vh;">Ricomincia</button>
 </body>
+
+<script>
+    const socket = io();
+
+    function alertServer(){
+        socket.emit('offlineRequested');
+    };
+</script>
+
 </html>

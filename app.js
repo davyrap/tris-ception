@@ -14,8 +14,6 @@ const usersPerRoom = {};
 
 // Handle socket connection
 io.on('connection', (socket) => {
-  console.log('A user connected');
-
   // Handle user registration with a code
   socket.on('register', (code) => {
     const room = io.sockets.adapter.rooms.get(code);
@@ -33,7 +31,7 @@ io.on('connection', (socket) => {
       // Add the user to the array for the room
       usersPerRoom[code].push(socket.id);
 
-      console.log(`User with code ${code} registered`);
+      console.log(`User ${socket.request.connection.remoteAddress} with code ${code} registered`);
 
       // Join a room based on the code
       socket.join(code);
@@ -44,7 +42,7 @@ io.on('connection', (socket) => {
     } 
     else
     {
-      console.log(`User with code ${code} rejected. Room is full.`);
+      console.log(`User ${socket.request.connection.remoteAddress} with code ${code} rejected. Room is full.`);
       socket.emit('registrationRejected', 'Room is full. Try another code.');
     }
   });
@@ -67,17 +65,24 @@ io.on('connection', (socket) => {
 
   // Handle disconnection
   socket.on('disconnect', () => {
-    console.log('User disconnected');
-
     // Remove the disconnected user from the array for their room
     Object.keys(usersPerRoom).forEach((code) => {
       usersPerRoom[code] = usersPerRoom[code].filter((userId) => userId !== socket.id);
       io.to(code).emit('userDisconnected');
     });
   });
+
+
+  socket.on("indexRequested", () => {
+    console.log('User ' + socket.request.connection.remoteAddress + ' loaded index');
+  });
+
+  socket.on("offlineRequested", () => {
+    console.log('User ' + socket.request.connection.remoteAddress + ' loaded offline');
+  });
 });
 
 const port = process.env.PORT || 3000;
 server.listen(port, "0.0.0.0", () => {
-  console.log(`Server is running on http://0.0.0.0:${port}`);
+  console.log(`Server is up and running on http://0.0.0.0:${port}`);
 });

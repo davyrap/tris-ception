@@ -262,7 +262,7 @@ function EndGame()
         }
 
     // sblocco questo client (qualora sia bloccato)
-    document.getElementById("blurrer").style.display = "block";
+    document.getElementById("lobbyBlurrer").style.display = "block";
     document.getElementById("musicLoop").pause();
     document.getElementById("endgameSong").play();
     document.getElementById("restartBtn").style.display = "block";
@@ -309,7 +309,11 @@ let code;
 // Register user with a code
 function Registrazione() {
     code = document.getElementById('roomCodeInput').value;
-    socket.emit('register', code);
+    if(code != "")
+    {
+        socket.emit('register', code);
+        Start();
+    }
 }
 socket.on('registrationRejected', (message) => {
     alert(message);
@@ -317,7 +321,7 @@ socket.on('registrationRejected', (message) => {
 });
 
 socket.on('waitForOpponent', (roomCode) => {
-    document.getElementById("blurrer").style.display = "block";
+    document.getElementById("lobbyBlurrer").style.display = "block";
     document.getElementById("roomCodeDisplay").innerHTML = "In attesa di un avversario.<br>Codice stanza: " + code;
 });
 
@@ -327,7 +331,7 @@ function SendMessage(buttonId, tileToActivate) {
     socket.emit('privateMessage', { code, message });
 
     // blocco questo client
-    document.getElementById("blurrer").style.display = "block";
+    document.getElementById("lobbyBlurrer").style.display = "block";
 }
 
 // Handle incoming messages
@@ -335,7 +339,7 @@ socket.on('privateMessage', ({ message, sender }) => {
     Write(message["button"], message["tile"], false);
 
     // ri-abilito questo client
-    document.getElementById("blurrer").style.display = "none";
+    document.getElementById("lobbyBlurrer").style.display = "none";
 
     //lo so è brutto perchè lo fa sempre non una sola volta
     document.getElementById("roomCodeDisplay").style.display = "none";
@@ -346,12 +350,24 @@ socket.on('userDisconnected', () => {
     Restart();
 })
 
+function CreaCodice()
+{
+    caratteri = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+    codice = "";
+    for(i = 0; i < 6; i++)
+    {
+        codice += caratteri[Math.floor(Math.random() * 16)];
+    }
+    
+    document.getElementById("roomCodeInput").value = codice;
+}
+
 //====================AUDIO MANAGEMENT=================
 useSFX = true;
 
 function SetAudioVisibility(visibility)
 {
-    document.getElementById("blurrer").style.display = visibility;
+    document.getElementById("audioBlurrer").style.display = visibility;
     document.getElementById("audioManager").style.display = visibility;
 }
 

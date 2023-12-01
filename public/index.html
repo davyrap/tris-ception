@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/mobile.css">
     <link rel="shortcut icon" href="RESOURCES/favicon.png" type="image/x-icon">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
 </head>
 <body>
     <h1 id="mainTitle">Tris-ception</h1>
@@ -64,5 +65,11 @@
     {
         window.location = "./HTML/online.html";
     }
+
+    const socket = io();
+
+    window.onload = function (){
+        socket.emit('indexRequested');
+    };
 </script>
 </html>
